@@ -20,7 +20,8 @@ jobs:
 
       - name: Install Dockerhub
         run: |
-          apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+          apt-get update -y && apt-get upgrade -y
+          apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
       - name: Checkout repository
         uses: actions/checkout@v4
