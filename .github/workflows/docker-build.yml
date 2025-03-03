@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Free up disk space
         run: |
-          sudo apt-get clean
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
+          apt-get clean
+          rm -rf /usr/local/lib/android
+          rm -rf /usr/share/dotnet
+          rm -rf /opt/ghc
           docker system prune -a -f
 
       - name: Checkout repository
