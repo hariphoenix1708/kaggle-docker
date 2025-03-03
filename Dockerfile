@@ -1,15 +1,15 @@
 # Use Kaggle's official Python image as base
-FROM kaggle/python
+FROM python:3.10-slim
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
-    aria2 \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y aria2 && rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip & setuptools
 RUN pip install --no-cache-dir --upgrade pip setuptools==69.5.1
+RUN pip install --no-cache-dir torch transformers==4.46.1
 
 # Install required Python packages
+
 RUN pip install --no-cache-dir \
     GitPython==3.1.32 \
     Pillow==9.5.0 \
@@ -40,10 +40,8 @@ RUN pip install --no-cache-dir \
     spandrel==0.3.4 \
     spandrel-extra-arches==0.1.1 \
     tomesd==0.1.3 \
-    torch \
     torchdiffeq==0.2.3 \
     torchsde==0.2.6 \
-    transformers==4.46.1 \
     pillow-avif-plugin==1.4.3 \
     diffusers==0.31.0 \
     gradio_rangeslider==0.0.6 \
