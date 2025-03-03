@@ -11,6 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu:22.04
     steps:
+      - name: Free up disk space
+        run: |
+          apt-get clean
+          rm -rf /usr/local/lib/android
+          rm -rf /usr/share/dotnet
+          rm -rf /opt/ghc
+
+      - name: Install Dockerhub
+        run: |
+          apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
       - name: Checkout repository
         uses: actions/checkout@v4
