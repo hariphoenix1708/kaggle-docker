@@ -21,8 +21,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t your-dockerhub-username/kaggle-image .
+        run: docker build -t phoenix1708/kaggle-image .
 
       - name: Push Docker image to DockerHub
-        run: docker push your-dockerhub-username/kaggle-image
+        run: docker push phoenix1708/kaggle-image
         
